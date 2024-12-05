@@ -22,6 +22,10 @@ window/size/viewport_height=960
 window/stretch/mode="canvas_items"
 window/handheld/orientation=5
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/silent_wolf/silent_wolf/plugin.cfg")
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
