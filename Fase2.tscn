@@ -1,8 +1,6 @@
-[gd_scene load_steps=37 format=3 uid="uid://gd48821410u7"]
+[gd_scene load_steps=35 format=3 uid="uid://gd48821410u7"]
 
-[ext_resource type="Script" path="res://Main.gd" id="1_hesq4"]
-[ext_resource type="PackedScene" uid="uid://woia2loyyxwe" path="res://Coin.tscn" id="2_gcks2"]
-[ext_resource type="PackedScene" uid="uid://ltcudyjxydpw" path="res://ConfettiParticles.tscn" id="3_45x2h"]
+[ext_resource type="Script" path="res://fase_2.gd" id="1_1osqg"]
 [ext_resource type="FontFile" uid="uid://wmxj8y8awha2" path="res://Winter Selfie.otf" id="4_jo4xb"]
 [ext_resource type="Texture2D" uid="uid://tc0cccryar0a" path="res://Player/past player flora/59 Sem Título_20241205191525.png" id="5_36ag6"]
 [ext_resource type="Script" path="res://Player.gd" id="6_0qin3"]
@@ -202,9 +200,7 @@ animations = [{
 size = Vector2(5.88581, 13.4066)
 
 [node name="Main" type="Node"]
-script = ExtResource("1_hesq4")
-coin = ExtResource("2_gcks2")
-confetti = ExtResource("3_45x2h")
+script = ExtResource("1_1osqg")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -228,15 +224,15 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -143.0
-offset_top = 20.0
-offset_right = 152.0
-offset_bottom = 106.0
+offset_left = -130.0
+offset_top = 21.0
+offset_right = 127.0
+offset_bottom = 107.0
 grow_horizontal = 2
 pivot_offset = Vector2(132, 34)
 theme_override_fonts/font = ExtResource("4_jo4xb")
 theme_override_font_sizes/font_size = 60
-text = "Espadas: 0"
+text = "Flores: 0"
 
 [node name="LevelLabel" type="Label" parent="UI"]
 layout_mode = 1
@@ -413,7 +409,7 @@ theme_override_fonts/font = ExtResource("13_2vcwp")
 theme_override_font_sizes/font_size = 50
 text = "Menu Principal"
 
-[node name="MensagemFase2" type="Control" parent="."]
+[node name="FinalMessage" type="Control" parent="."]
 visible = false
 z_index = 10
 layout_mode = 3
@@ -424,7 +420,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("11_do6l3")
 
-[node name="Background" type="ColorRect" parent="MensagemFase2"]
+[node name="Background" type="ColorRect" parent="FinalMessage"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -433,31 +429,28 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.852223, 0.585027, 0.640746, 0.882353)
 
-[node name="GameOverTitle" type="Label" parent="MensagemFase2"]
+[node name="GameOverTitle" type="Label" parent="FinalMessage"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -135.5
-offset_top = -43.0
-offset_right = 135.5
-offset_bottom = 43.0
+offset_left = -291.0
+offset_top = -87.0
+offset_right = 280.0
+offset_bottom = 140.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(132, 34)
 theme_override_fonts/font = ExtResource("13_2vcwp")
-theme_override_font_sizes/font_size = 100
-text = "Fase 2"
+theme_override_font_sizes/font_size = 90
+text = "Voce 
+Venceu!!"
+horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 35.0
-one_shot = true
-autostart = true
-
-[node name="MensageTimer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 45.0
 one_shot = true
 autostart = true
 
@@ -473,4 +466,3 @@ autostart = true
 [connection signal="pressed" from="GameOver/VBoxContainer/PlayAgainButton" to="GameOver" method="_on_play_again_button_pressed"]
 [connection signal="pressed" from="GameOver/VBoxContainer/HomeButton" to="GameOver" method="_on_home_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="MensageTimer" to="." method="_on_mensage_timer_timeout"]
