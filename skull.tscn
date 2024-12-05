@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://co4a8n1cevnid"]
+
+[ext_resource type="Script" path="res://skull.gd" id="1_3t4m2"]
+[ext_resource type="Texture2D" uid="uid://bgfd1hn2qv8js" path="res://Player/past player flora/inimigo1.png" id="2_xr0pn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h301t"]
+size = Vector2(25, 56.5)
+
+[node name="Skull" type="Area2D"]
+script = ExtResource("1_3t4m2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.218571, 0.242857)
+texture = ExtResource("2_xr0pn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7.75)
+shape = SubResource("RectangleShape2D_h301t")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
