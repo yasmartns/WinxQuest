@@ -1,0 +1,476 @@
+[gd_scene load_steps=37 format=3 uid="uid://gd48821410u7"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_hesq4"]
+[ext_resource type="PackedScene" uid="uid://woia2loyyxwe" path="res://Coin.tscn" id="2_gcks2"]
+[ext_resource type="PackedScene" uid="uid://ltcudyjxydpw" path="res://ConfettiParticles.tscn" id="3_45x2h"]
+[ext_resource type="FontFile" uid="uid://wmxj8y8awha2" path="res://Winter Selfie.otf" id="4_jo4xb"]
+[ext_resource type="Texture2D" uid="uid://tc0cccryar0a" path="res://Player/past player flora/59 Sem Título_20241205191525.png" id="5_36ag6"]
+[ext_resource type="Script" path="res://Player.gd" id="6_0qin3"]
+[ext_resource type="Texture2D" uid="uid://cojd320pocp8i" path="res://Player/past player flora/flora_back.png" id="7_nhywp"]
+[ext_resource type="Texture2D" uid="uid://c6cwmyq85g4ap" path="res://Player/past player flora/flora_morte.png" id="8_jw57m"]
+[ext_resource type="Texture2D" uid="uid://03jv0uvcjp84" path="res://Player/past player flora/flora_front.png" id="9_73e3b"]
+[ext_resource type="Texture2D" uid="uid://fctr0y4lwsx8" path="res://Player/past player flora/flora_idle.png" id="10_j0m1s"]
+[ext_resource type="Script" path="res://GameOver.gd" id="11_do6l3"]
+[ext_resource type="Texture2D" uid="uid://ci6b85bi8g1w6" path="res://Player/past player flora/pixilart-sprite.png" id="11_e2lab"]
+[ext_resource type="FontFile" uid="uid://q13fxkudyyl3" path="res://Scream Again.ttf" id="12_bixom"]
+[ext_resource type="FontFile" uid="uid://brgyjv68o5ug3" path="res://Starborn.otf" id="13_2vcwp"]
+
+[sub_resource type="Animation" id="Animation_whoi3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CoinsLabel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lgt61"]
+resource_name = "ScoreIncreased"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CoinsLabel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ixifg"]
+_data = {
+"RESET": SubResource("Animation_whoi3"),
+"ScoreIncreased": SubResource("Animation_lgt61")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3sq4d"]
+atlas = ExtResource("7_nhywp")
+region = Rect2(0, 0, 60, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1831v"]
+atlas = ExtResource("7_nhywp")
+region = Rect2(60, 0, 60, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17gl5"]
+atlas = ExtResource("7_nhywp")
+region = Rect2(120, 0, 60, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbudj"]
+atlas = ExtResource("7_nhywp")
+region = Rect2(180, 0, 60, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fhx3"]
+atlas = ExtResource("8_jw57m")
+region = Rect2(0, 0, 60, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvi4o"]
+atlas = ExtResource("9_73e3b")
+region = Rect2(0, 0, 52, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dns21"]
+atlas = ExtResource("9_73e3b")
+region = Rect2(52, 0, 52, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvrr5"]
+atlas = ExtResource("9_73e3b")
+region = Rect2(104, 0, 52, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sk3g"]
+atlas = ExtResource("9_73e3b")
+region = Rect2(156, 0, 52, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6mt6"]
+atlas = ExtResource("10_j0m1s")
+region = Rect2(0, 0, 52, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ak2j4"]
+atlas = ExtResource("10_j0m1s")
+region = Rect2(52, 0, 52, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54ppm"]
+atlas = ExtResource("10_j0m1s")
+region = Rect2(104, 0, 52, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0odic"]
+atlas = ExtResource("10_j0m1s")
+region = Rect2(156, 0, 52, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amjyh"]
+atlas = ExtResource("11_e2lab")
+region = Rect2(0, 0, 60, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amlqn"]
+atlas = ExtResource("11_e2lab")
+region = Rect2(60, 0, 60, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0novw"]
+atlas = ExtResource("11_e2lab")
+region = Rect2(120, 0, 60, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avgp5"]
+atlas = ExtResource("11_e2lab")
+region = Rect2(180, 0, 60, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3hjia"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3sq4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1831v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17gl5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbudj")
+}],
+"loop": true,
+"name": &"Back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fhx3")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvi4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dns21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvrr5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8sk3g")
+}],
+"loop": true,
+"name": &"Front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6mt6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ak2j4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54ppm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0odic")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amjyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amlqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0novw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avgp5")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62tl5"]
+size = Vector2(5.88581, 13.4066)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_hesq4")
+coin = ExtResource("2_gcks2")
+confetti = ExtResource("3_45x2h")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.477494, 0.752638, 0.65281, 1)
+
+[node name="CoinsLabel" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -143.0
+offset_top = 20.0
+offset_right = 152.0
+offset_bottom = 106.0
+grow_horizontal = 2
+pivot_offset = Vector2(132, 34)
+theme_override_fonts/font = ExtResource("4_jo4xb")
+theme_override_font_sizes/font_size = 60
+text = "Espadas: 0"
+
+[node name="LevelLabel" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -123.0
+offset_top = 119.0
+offset_right = 164.0
+offset_bottom = 205.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_jo4xb")
+theme_override_font_sizes/font_size = 60
+text = "Nível: 0 "
+
+[node name="UpButton" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = -210.0
+offset_right = 51.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="DownButton" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -46.0
+offset_top = -103.0
+offset_right = 50.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="RightButton" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 53.0
+offset_top = -103.0
+offset_right = 148.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LeftButton" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -143.0
+offset_top = -102.0
+offset_right = -52.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HealthBar" type="TextureProgressBar" parent="UI"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -274.0
+offset_right = 106.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 10000.0
+value = 10000.0
+fill_mode = 5
+nine_patch_stretch = true
+texture_progress = ExtResource("5_36ag6")
+
+[node name="CoinsLabelAnimationPlayer" type="AnimationPlayer" parent="UI"]
+libraries = {
+"": SubResource("AnimationLibrary_ixifg")
+}
+speed_scale = 3.5
+
+[node name="Player" type="Area2D" parent="." groups=["Player"]]
+position = Vector2(270, 480)
+scale = Vector2(3.05821, 3.05821)
+script = ExtResource("6_0qin3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+texture_filter = 1
+position = Vector2(-5.8858, 0.980966)
+sprite_frames = SubResource("SpriteFrames_3hjia")
+animation = &"Walk"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+scale = Vector2(1.44834, 0.961065)
+shape = SubResource("RectangleShape2D_62tl5")
+
+[node name="GameOver" type="Control" parent="."]
+visible = false
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_do6l3")
+
+[node name="Background" type="ColorRect" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.690196, 0, 0, 0.882353)
+
+[node name="GameOverTitle" type="Label" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -189.0
+offset_top = 33.0
+offset_right = 190.0
+offset_bottom = 101.0
+grow_horizontal = 2
+pivot_offset = Vector2(132, 34)
+theme_override_fonts/font = ExtResource("12_bixom")
+theme_override_font_sizes/font_size = 44
+text = "Voce Morreu!"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.5
+offset_top = -80.0
+offset_right = 190.5
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="PlayAgainButton" type="Button" parent="GameOver/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_2vcwp")
+theme_override_font_sizes/font_size = 50
+text = "Jogar de Novo"
+
+[node name="HomeButton" type="Button" parent="GameOver/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_2vcwp")
+theme_override_font_sizes/font_size = 50
+text = "Menu Principal"
+
+[node name="MensagemFase2" type="Control" parent="."]
+visible = false
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_do6l3")
+
+[node name="Background" type="ColorRect" parent="MensagemFase2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.852223, 0.585027, 0.640746, 0.882353)
+
+[node name="GameOverTitle" type="Label" parent="MensagemFase2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.5
+offset_top = -43.0
+offset_right = 135.5
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(132, 34)
+theme_override_fonts/font = ExtResource("13_2vcwp")
+theme_override_font_sizes/font_size = 100
+text = "Fase 2"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 35.0
+one_shot = true
+autostart = true
+
+[node name="MensageTimer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[connection signal="button_down" from="UI/UpButton" to="Player" method="_on_up_button_button_down"]
+[connection signal="button_up" from="UI/UpButton" to="Player" method="_on_up_button_button_up"]
+[connection signal="button_down" from="UI/DownButton" to="Player" method="_on_down_button_button_down"]
+[connection signal="button_up" from="UI/DownButton" to="Player" method="_on_down_button_button_up"]
+[connection signal="button_down" from="UI/RightButton" to="Player" method="_on_right_button_button_down"]
+[connection signal="button_up" from="UI/RightButton" to="Player" method="_on_right_button_button_up"]
+[connection signal="button_down" from="UI/LeftButton" to="Player" method="_on_left_button_button_down"]
+[connection signal="button_up" from="UI/LeftButton" to="Player" method="_on_left_button_button_up"]
+[connection signal="area_entered" from="Player" to="Player" method="_on_area_entered"]
+[connection signal="pressed" from="GameOver/VBoxContainer/PlayAgainButton" to="GameOver" method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="GameOver/VBoxContainer/HomeButton" to="GameOver" method="_on_home_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="MensageTimer" to="." method="_on_mensage_timer_timeout"]
