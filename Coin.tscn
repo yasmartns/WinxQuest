@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://byg0ur75xb1b4" path="res://Player/past player flora/59 Sem Título_20241205181408 (1).png" id="2_nbr6c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1cyxv"]
-size = Vector2(208, 224)
+size = Vector2(140, 164)
 
 [sub_resource type="Animation" id="Animation_jj4ym"]
 resource_name = "CoinCollected"
@@ -74,7 +74,6 @@ script = ExtResource("1_hrbmq")
 texture = ExtResource("2_nbr6c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_1cyxv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
