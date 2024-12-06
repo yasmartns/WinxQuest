@@ -58,6 +58,7 @@ func show_game_over():
 	game_over = true
 	$Timer.stop()
 	$MensageTimer.stop()
+	$MensagemFase2.stop()
 	
 func instantiate_coins() -> void:
 	for i in range(level):

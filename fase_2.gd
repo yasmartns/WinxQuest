@@ -29,7 +29,7 @@ func _ready():
 	
 func generate_unique_position() -> Vector2:
 	var position : Vector2
-	var max_attempts : int = 100  # Limite de tentativas para evitar loop infinito
+	var max_attempts : int = 100
 	
 	for attempt in range(max_attempts):
 		var random_x : float = randf_range(min_positions.x, max_positions.x)
@@ -38,16 +38,14 @@ func generate_unique_position() -> Vector2:
 		
 		if not position in used_positions:
 			used_positions.append(position)
-			return position  # Retorna imediatamente após encontrar uma posição válida
-
-	# Fallback: retorna uma posição padrão caso o loop não encontre uma posição
+			return position
+			
 	return min_positions
-
-
 
 func level_passed() -> void:
 	health = 10000
 	level += 1
+	used_positions.clear()
 	$UI/LevelLabel.text = "Level: " + str(level)
 	instantiate_flor()
 	instantiate_confetti()
@@ -56,14 +54,14 @@ func level_passed() -> void:
 func instantiate_besouro() -> void:
 	for i in range(1): 
 		var besouro_instance : Area2D = besouro.instantiate()
-		besouro_instance.position = generate_unique_position()
+		var unique_position : Vector2 = generate_unique_position()
+		besouro_instance.position = unique_position
 		var random_x : float = randf_range(min_positions.x, max_positions.x)
 		var random_y : float = randf_range(min_positions.y, max_positions.y)
 		besouro_instance.position = Vector2(random_x, random_y)
 		besouro_instance.name = "Besouro" # Nomeia as instâncias para facilitar a identificação
 		add_child(besouro_instance)
 		
-
 func reset_besouro() -> void:
 	# Remove todas as caveiras existentes
 	for child in get_children():
@@ -81,11 +79,13 @@ func show_game_over():
 func instantiate_flor() -> void:
 	for i in range(level):
 		var flor_instance : Area2D = flor.instantiate()
-		flor_instance.position = generate_unique_position()
+		var unique_position : Vector2 = generate_unique_position()
+		flor_instance.position = unique_position
 		var random_x : float = randf_range(min_positions.x, max_positions.x)
 		var random_y : float = randf_range(min_positions.y, max_positions.y)
 		flor_instance.position = Vector2(random_x, random_y)
 		call_deferred("add_child", flor_instance)
+		
 
 func instantiate_confetti() -> void:
 	var confetti_instance : CPUParticles2D = confetti.instantiate()
@@ -95,6 +95,8 @@ func instantiate_confetti() -> void:
 func instantiate_inimigo2() -> void:
 	for i in range(1): 
 		var inimigo2_instance : Area2D = inimigo2.instantiate()
+		var unique_position : Vector2 = generate_unique_position()
+		inimigo2_instance.position = unique_position
 		var random_x : float = randf_range(min_positions.x, max_positions.x)
 		var random_y : float = randf_range(min_positions.y, max_positions.y)
 		inimigo2_instance.position = Vector2(random_x, random_y)

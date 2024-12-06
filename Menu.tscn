@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_waa47"]
 [ext_resource type="FontFile" uid="uid://brgyjv68o5ug3" path="res://Starborn.otf" id="2_erw36"]
-[ext_resource type="Texture2D" uid="uid://dypxtykpt2tdg" path="res://pixilart-drawing.png" id="2_l5ka6"]
+[ext_resource type="Texture2D" uid="uid://cvfj4nnjt1f0o" path="res://pixil-frame-0.png" id="2_oyj0q"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -22,13 +22,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Pixilart-drawing" type="Sprite2D" parent="."]
-modulate = Color(0.36696, 0.725439, 0.967387, 1)
-position = Vector2(268.625, 478.5)
-scale = Vector2(4.02037, 4.02083)
-texture = ExtResource("2_l5ka6")
+position = Vector2(269.5, 480)
+scale = Vector2(8.07463, 8)
+texture = ExtResource("2_oyj0q")
 
 [node name="PlayButton" type="Button" parent="."]
-modulate = Color(0.713726, 0.964706, 1, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -41,7 +39,7 @@ offset_right = 115.0
 offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.847602, 0.553384, 0.290709, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_erw36")
 theme_override_font_sizes/font_size = 60
 text = "Start"

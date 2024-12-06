@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://ce5gsk57vt00s"]
+[gd_scene load_steps=36 format=3 uid="uid://ce5gsk57vt00s"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_kybbk"]
 [ext_resource type="PackedScene" uid="uid://woia2loyyxwe" path="res://Coin.tscn" id="2_8qwvk"]
@@ -13,6 +13,7 @@
 [ext_resource type="FontFile" uid="uid://q13fxkudyyl3" path="res://Scream Again.ttf" id="11_15oll"]
 [ext_resource type="FontFile" uid="uid://brgyjv68o5ug3" path="res://Starborn.otf" id="12_s0ajb"]
 [ext_resource type="Script" path="res://GameOver.gd" id="13_2w7s7"]
+[ext_resource type="AudioStream" uid="uid://dhfueg58cp4it" path="res://music/winx-club-temporada-1-tema-de-abertura-p5rrjgmoj4k-made-with-Voicemod.mp3" id="14_0lssg"]
 
 [sub_resource type="Animation" id="Animation_whoi3"]
 length = 0.001
@@ -231,7 +232,7 @@ grow_horizontal = 2
 pivot_offset = Vector2(132, 34)
 theme_override_fonts/font = ExtResource("4_0cpbj")
 theme_override_font_sizes/font_size = 60
-text = "Espadas: 0"
+text = "Livros: 0"
 
 [node name="LevelLabel" type="Label" parent="UI"]
 layout_mode = 1
@@ -454,6 +455,10 @@ autostart = true
 wait_time = 30.0
 one_shot = true
 autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_0lssg")
+autoplay = true
 
 [connection signal="button_down" from="UI/UpButton" to="Player" method="_on_up_button_button_down"]
 [connection signal="button_up" from="UI/UpButton" to="Player" method="_on_up_button_button_up"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://gd48821410u7"]
+[gd_scene load_steps=36 format=3 uid="uid://gd48821410u7"]
 
 [ext_resource type="Script" path="res://fase_2.gd" id="1_1osqg"]
 [ext_resource type="FontFile" uid="uid://wmxj8y8awha2" path="res://Winter Selfie.otf" id="4_jo4xb"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ci6b85bi8g1w6" path="res://Player/past player flora/pixilart-sprite.png" id="11_e2lab"]
 [ext_resource type="FontFile" uid="uid://q13fxkudyyl3" path="res://Scream Again.ttf" id="12_bixom"]
 [ext_resource type="FontFile" uid="uid://brgyjv68o5ug3" path="res://Starborn.otf" id="13_2vcwp"]
+[ext_resource type="AudioStream" uid="uid://cv04iub5yex0v" path="res://music/Winx Club Transformação Magia Winx Temporadas 1,2,3 Music Vídeo (PORTUGUÊS BR) HD.mp3" id="13_edhvr"]
 
 [sub_resource type="Animation" id="Animation_whoi3"]
 length = 0.001
@@ -468,10 +469,24 @@ theme_override_font_sizes/font_size = 40
 text = "Score Final: "
 horizontal_alignment = 1
 
+[node name="HomeButton2" type="Button" parent="FinalMessage"]
+layout_mode = 2
+offset_left = 166.0
+offset_top = 414.0
+offset_right = 382.0
+offset_bottom = 478.0
+theme_override_fonts/font = ExtResource("13_2vcwp")
+theme_override_font_sizes/font_size = 50
+text = "Menu"
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 45.0
 one_shot = true
 autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_edhvr")
+autoplay = true
 
 [connection signal="button_down" from="UI/UpButton" to="Player" method="_on_up_button_button_down"]
 [connection signal="button_up" from="UI/UpButton" to="Player" method="_on_up_button_button_up"]
@@ -484,4 +499,5 @@ autostart = true
 [connection signal="area_entered" from="Player" to="Player" method="_on_area_entered"]
 [connection signal="pressed" from="GameOver/VBoxContainer/PlayAgainButton" to="GameOver" method="_on_play_again_button_pressed"]
 [connection signal="pressed" from="GameOver/VBoxContainer/HomeButton" to="GameOver" method="_on_home_button_pressed"]
+[connection signal="pressed" from="FinalMessage/HomeButton2" to="GameOver" method="_on_home_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
