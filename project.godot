@@ -28,7 +28,7 @@ window/handheld/orientation=5
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/silent_wolf/silent_wolf/plugin.cfg")
+enabled=PackedStringArray()
 
 [rendering]
 
