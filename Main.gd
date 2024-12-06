@@ -56,6 +56,8 @@ func reset_skulls() -> void:
 func show_game_over():
 	$GameOver.show()
 	game_over = true
+	$Timer.stop()
+	$MensageTimer.stop()
 	
 func instantiate_coins() -> void:
 	for i in range(level):
@@ -90,7 +92,6 @@ func reset_obstaculo() -> void:
 	
 func _on_mensage_timer_timeout() -> void:
 	$MensagemFase2.show()
-
 
 func _on_timer_timeout() -> void:
 	get_tree().change_scene_to_file("res://Fase2.tscn")
