@@ -58,7 +58,7 @@ func _on_area_entered(area):
 	if area.is_in_group("Coin"):
 		coins_collected_in_level += 1
 		score += 1
-		get_parent().get_node("UI/CoinsLabel").text = "Livros: " + str(score)
+		get_parent().get_node("UI/CoinsLabel").text = "Flores: " + str(score)
 		get_parent().get_node("UI/CoinsLabelAnimationPlayer").play("ScoreIncreased")
 		
 		if coins_collected_in_level == get_parent().level:

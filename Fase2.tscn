@@ -1,9 +1,9 @@
 [gd_scene load_steps=36 format=3 uid="uid://gd48821410u7"]
 
 [ext_resource type="Script" path="res://fase_2.gd" id="1_1osqg"]
+[ext_resource type="Script" path="res://player2.gd" id="4_cdw4n"]
 [ext_resource type="FontFile" uid="uid://wmxj8y8awha2" path="res://Winter Selfie.otf" id="4_jo4xb"]
 [ext_resource type="Texture2D" uid="uid://tc0cccryar0a" path="res://Player/past player flora/59 Sem Título_20241205191525.png" id="5_36ag6"]
-[ext_resource type="Script" path="res://Player.gd" id="6_0qin3"]
 [ext_resource type="Texture2D" uid="uid://cojd320pocp8i" path="res://Player/past player flora/flora_back.png" id="7_nhywp"]
 [ext_resource type="Texture2D" uid="uid://c6cwmyq85g4ap" path="res://Player/past player flora/flora_morte.png" id="8_jw57m"]
 [ext_resource type="Texture2D" uid="uid://03jv0uvcjp84" path="res://Player/past player flora/flora_front.png" id="9_73e3b"]
@@ -334,7 +334,7 @@ speed_scale = 3.5
 [node name="Player" type="Area2D" parent="." groups=["Player"]]
 position = Vector2(270, 480)
 scale = Vector2(3.05821, 3.05821)
-script = ExtResource("6_0qin3")
+script = ExtResource("4_cdw4n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 texture_filter = 1
