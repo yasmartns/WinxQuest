@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://brbaurvkxuqt5"]
 
-[ext_resource type="Script" path="res://Menu.gd" id="1_waa47"]
+[ext_resource type="Script" uid="uid://dbs2teou5f4yk" path="res://Menu.gd" id="1_waa47"]
 [ext_resource type="FontFile" uid="uid://brgyjv68o5ug3" path="res://Starborn.otf" id="2_erw36"]
 [ext_resource type="Texture2D" uid="uid://cvfj4nnjt1f0o" path="res://pixil-frame-0.png" id="2_oyj0q"]
 

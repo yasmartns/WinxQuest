@@ -1,14 +1,14 @@
 [gd_scene load_steps=36 format=3 uid="uid://gd48821410u7"]
 
-[ext_resource type="Script" path="res://fase_2.gd" id="1_1osqg"]
-[ext_resource type="Script" path="res://player2.gd" id="4_cdw4n"]
+[ext_resource type="Script" uid="uid://cnigi7ylbe0l7" path="res://fase_2.gd" id="1_1osqg"]
+[ext_resource type="Script" uid="uid://btff8no25idtk" path="res://player2.gd" id="4_cdw4n"]
 [ext_resource type="FontFile" uid="uid://wmxj8y8awha2" path="res://Winter Selfie.otf" id="4_jo4xb"]
 [ext_resource type="Texture2D" uid="uid://tc0cccryar0a" path="res://Player/past player flora/59 Sem Título_20241205191525.png" id="5_36ag6"]
 [ext_resource type="Texture2D" uid="uid://cojd320pocp8i" path="res://Player/past player flora/flora_back.png" id="7_nhywp"]
 [ext_resource type="Texture2D" uid="uid://c6cwmyq85g4ap" path="res://Player/past player flora/flora_morte.png" id="8_jw57m"]
 [ext_resource type="Texture2D" uid="uid://03jv0uvcjp84" path="res://Player/past player flora/flora_front.png" id="9_73e3b"]
 [ext_resource type="Texture2D" uid="uid://fctr0y4lwsx8" path="res://Player/past player flora/flora_idle.png" id="10_j0m1s"]
-[ext_resource type="Script" path="res://GameOver.gd" id="11_do6l3"]
+[ext_resource type="Script" uid="uid://bgw7gn6ou0rp8" path="res://GameOver.gd" id="11_do6l3"]
 [ext_resource type="Texture2D" uid="uid://ci6b85bi8g1w6" path="res://Player/past player flora/pixilart-sprite.png" id="11_e2lab"]
 [ext_resource type="FontFile" uid="uid://q13fxkudyyl3" path="res://Scream Again.ttf" id="12_bixom"]
 [ext_resource type="FontFile" uid="uid://brgyjv68o5ug3" path="res://Starborn.otf" id="13_2vcwp"]
@@ -46,8 +46,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ixifg"]
 _data = {
-"RESET": SubResource("Animation_whoi3"),
-"ScoreIncreased": SubResource("Animation_lgt61")
+&"RESET": SubResource("Animation_whoi3"),
+&"ScoreIncreased": SubResource("Animation_lgt61")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3sq4d"]
@@ -249,62 +249,6 @@ theme_override_fonts/font = ExtResource("4_jo4xb")
 theme_override_font_sizes/font_size = 60
 text = "Nível: 0 "
 
-[node name="UpButton" type="Button" parent="UI"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -47.0
-offset_top = -210.0
-offset_right = 51.0
-offset_bottom = -112.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="DownButton" type="Button" parent="UI"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -46.0
-offset_top = -103.0
-offset_right = 50.0
-offset_bottom = -11.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="RightButton" type="Button" parent="UI"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 53.0
-offset_top = -103.0
-offset_right = 148.0
-offset_bottom = -11.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="LeftButton" type="Button" parent="UI"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -143.0
-offset_top = -102.0
-offset_right = -52.0
-offset_bottom = -11.0
-grow_horizontal = 2
-grow_vertical = 0
-
 [node name="HealthBar" type="TextureProgressBar" parent="UI"]
 texture_filter = 1
 layout_mode = 1
@@ -327,7 +271,7 @@ texture_progress = ExtResource("5_36ag6")
 
 [node name="CoinsLabelAnimationPlayer" type="AnimationPlayer" parent="UI"]
 libraries = {
-"": SubResource("AnimationLibrary_ixifg")
+&"": SubResource("AnimationLibrary_ixifg")
 }
 speed_scale = 3.5
 
@@ -488,14 +432,6 @@ autostart = true
 stream = ExtResource("13_edhvr")
 autoplay = true
 
-[connection signal="button_down" from="UI/UpButton" to="Player" method="_on_up_button_button_down"]
-[connection signal="button_up" from="UI/UpButton" to="Player" method="_on_up_button_button_up"]
-[connection signal="button_down" from="UI/DownButton" to="Player" method="_on_down_button_button_down"]
-[connection signal="button_up" from="UI/DownButton" to="Player" method="_on_down_button_button_up"]
-[connection signal="button_down" from="UI/RightButton" to="Player" method="_on_right_button_button_down"]
-[connection signal="button_up" from="UI/RightButton" to="Player" method="_on_right_button_button_up"]
-[connection signal="button_down" from="UI/LeftButton" to="Player" method="_on_left_button_button_down"]
-[connection signal="button_up" from="UI/LeftButton" to="Player" method="_on_left_button_button_up"]
 [connection signal="area_entered" from="Player" to="Player" method="_on_area_entered"]
 [connection signal="pressed" from="GameOver/VBoxContainer/PlayAgainButton" to="GameOver" method="_on_play_again_button_pressed"]
 [connection signal="pressed" from="GameOver/VBoxContainer/HomeButton" to="GameOver" method="_on_home_button_pressed"]
